@@ -3,4 +3,9 @@ class SightingsController < ApplicationController
         @sighting = Sighting.find(params[:id])
         render json: SightingSerializer.new(sighting).to_serialized_json
     end
+
+    def index
+      sighting = Sighting.all
+      render json: SightingSerializer.new(sighting).to_serialized_json
+    end
 end
